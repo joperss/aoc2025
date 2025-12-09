@@ -22,16 +22,16 @@ class Dial:
         self.head.prev = node
         self.curr = self.head
 
-        self.step(start_pos, "L")
+        self.step(start_pos, "R")
 
     def step(self, steps, dir):
         if dir == "L":
             while steps > 0:
-                self.curr = self.curr.next
+                self.curr = self.curr.prev
                 steps -= 1
         elif dir == "R":
             while steps > 0:
-                self.curr = self.curr.prev
+                self.curr = self.curr.next
                 steps -= 1
 
 
