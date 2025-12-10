@@ -4,16 +4,16 @@ with open("input.txt", "r") as file:
     invalid_id_count = 0
     for x in file.readline().split(","):
         start, stop = x.split("-")
+        start = int(start)
+        stop = int(stop)
 
-        for i in range(int(start), int(stop) + 1):
+        for i in range(1, stop):
             i_str = str(i)
-            i_len = len(i_str)
-            if i_len % 2 != 0:
-                pass
+            invalid_id = int(i_str + i_str)
+            if invalid_id > stop:
+                break
 
-            pre = i_str[: int(i_len / 2)]
-            post = i_str[int(i_len / 2) :]
-            if pre == post:
-                invalid_id_count += i
+            if invalid_id >= start:
+                invalid_id_count += invalid_id
 
     print("Invalid ID count: " + str(invalid_id_count))
